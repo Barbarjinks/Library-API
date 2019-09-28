@@ -1,0 +1,34 @@
+{
+  "name": "library-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon -r dotenv/config index.js",
+    "test": "mocha tests/**/*.test.js --opts .mocha.opts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Barbarjinks/Library-API.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Barbarjinks/Library-API/issues"
+  },
+  "homepage": "https://github.com/Barbarjinks/Library-API#readme",
+  "devDependencies": {
+    "babel-eslint": "^8.2.5",
+    "eslint": "^4.19.1",
+    "eslint-config-mcr-codes": "^1.3.0",
+    "eslint-plugin-babel": "^5.1.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-react": "^7.9.1"
+  },
+  "dependencies": {
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.1",
+    "nodemon": "^1.19.2"
+  }
+}
