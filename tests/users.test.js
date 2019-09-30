@@ -27,7 +27,7 @@ describe('/users', () => {
                     expect(user.firstName).to.equal('Testy');
                     expect(user.lastName).to.equal('Mctesterson');
                     expect(user.email).to.equal('Test@test.com');
-                    expect(user.password).to.equal('TestMe');
+                    expect(user.password).not.equal('TestMe');
                     done();
                 });
             });
