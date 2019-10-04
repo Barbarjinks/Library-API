@@ -1,3 +1,5 @@
 {
-    "extends": "mcr-codes";
+    "extends": [
+      "mcr-codes"
+    ]
   }
