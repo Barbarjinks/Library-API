@@ -10,7 +10,7 @@ const userSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: true
+        required: true,
     },
 });
 
@@ -24,6 +24,12 @@ userSchema.pre('save', function encryptPassword(next) {
         }
     });
 });
+
+userSchema.methods.sanitise = function () {
+    const userObject = this.toObject();
+    const { password, ...rest } = userObject;
+    return rest;
+};
 
 const User = mongoose.model('User', userSchema);
 
