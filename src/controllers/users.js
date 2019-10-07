@@ -8,8 +8,21 @@ exports.create = (req, res) => {
     password: req.body.password,
   });
 
-  user.save().then(() => {
-    const sanitizedUser = user.sanitise();
-    res.status(201).json(sanitizedUser);
-  });
+  user.save()
+    .then(() => {
+      const sanitizedUser = user.sanitise();
+      res.status(201).json(sanitizedUser);
+    })
+    .catch((err) => {
+      if (err.name === 'ValidationError') {
+        const EmailError = err.errors.email ? err.errors.email.message : null;
+        res.status(400).json({
+          errors: {
+            email: EmailError,
+          },
+        });
+      } else {
+        res.sendStatus(500);
+      }
+    });
 };

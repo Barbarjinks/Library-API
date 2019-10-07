@@ -25,7 +25,7 @@ before((done) => {
 
   mongoose.connect(process.env.DATABASE_CONN, { 
     useNewUrlParser: true,
-    seUnifiedTopology: true
+    useUnifiedTopology: true,
   }, () => {
     // start test server on any available port
     server = app.listen();
