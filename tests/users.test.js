@@ -32,5 +32,24 @@ describe('/users', () => {
           });
         });
     });
+    it('API validates email', (done) => {
+      chai.request(server)
+        .post('/users')
+        .send({
+          firstName: 'Testy',
+          lastName: 'Mctesterson',
+          email: 'Testtttttttt',
+          password: 'TestMe',
+        })
+        .end((err, res) => {
+          expect(res.body.errors.email).to.equal('Invalid email address');
+          expect(res.status).to.equal(400);
+
+          User.countDocuments({}, (error, count) => {
+            expect(count).to.equal(0);
+          });
+          done();
+        });
+    });
   });
 });
